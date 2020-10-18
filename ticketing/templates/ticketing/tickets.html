@@ -1,0 +1,43 @@
+{% extends "ticketing/base.html" %}
+{% block content %}
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Issues</h1>
+
+        <!-- DataTales Example -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Tickets</h6>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                    <tr>
+                      <th>Issue ID</th>
+                      <th>Reporter</th>
+                      <th>Details</th>
+                      <th>Created</th>
+                      <th>Due</th>
+                      <th>Severity</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  {% for t in tickets %}
+                    <tr>
+                      <td>t.issue_id</td>
+                      <td>t.submitter</td>
+                      <td>t.issue_description</td>
+                      <td>t.date_identified</td>
+                      <td>t.due_date</td>
+                      <td>t.severity</td>
+                    </tr>
+                  {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- /.container-fluid -->
+{% endblock content %}
