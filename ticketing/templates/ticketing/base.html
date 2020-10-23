@@ -220,11 +220,16 @@
         </nav>
         <!-- End of Topbar -->
 
-
-
+  {% if messages %}
+      {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">
+          {{ message }}
+        </div>
+      {% endfor %}
+    {% endif %}
+    {% block container %}{% endblock %}
   </div>
 
-    {% block container %}{% endblock %}
 
   <!-- Footer -->
     <footer class="sticky-footer bg-white">
