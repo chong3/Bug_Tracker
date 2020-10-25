@@ -1,4 +1,26 @@
 {% extends "ticketing/base.html" %}
 {% block content %}
-    <h1>Bug Tracker</h1>
+    <div class="container-fluid">
+        <h1 class="h3 mb-2 text-gray-800">Dashboard</h1>
+
+        <!-- DataTable -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Recent Tickets</h6>
+            </div>
+                {% for t in tickets %}
+                    <article class="media content-section">
+                      <img class="rounded-circle article-img" src="{{ t.author.profile.image.url }}">
+                      <div class="media-body">
+                        <div class="article-metadata">
+                          <a class="mr-2" href="#">{{ t.author }}</a>
+                          <small class="text-muted">{{ t.date_submitted|date:"F d, Y" }}</small>
+                        </div>
+                        <h2><a class="article-title" href="#">{{ t.issue_summary }}</a></h2>
+                        <p class="article-content">{{ t.issue_description }}</p>
+                      </div>
+                    </article>
+                {% endfor %}
+        </div>
+    </div>
 {% endblock content %}
